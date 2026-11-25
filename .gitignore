@@ -14,6 +14,7 @@ data/processed/*
 
 # Model binaries (rebuild with the training commands)
 artifacts/*.joblib
+!artifacts/final_model.joblib
 
 # OS / editor
 .DS_Store
