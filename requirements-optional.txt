@@ -1,0 +1,8 @@
+# Optional extras (NOT needed for the core project)
+xgboost>=2.0        # optional extra model in Stage 4 (set models.xgboost.enabled: true)
+shap>=0.45          # optional; core project uses permutation importance + occlusion
+# Stage 11 API extension
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+httpx>=0.27         # needed by FastAPI TestClient in tests/test_api.py

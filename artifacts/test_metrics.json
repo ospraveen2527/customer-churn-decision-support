@@ -1,0 +1,103 @@
+{
+  "evaluated_at_utc": "2026-11-25T18:47:40.044796+00:00",
+  "model_version": "logistic_regression-raw-7b261076",
+  "n_test": 1409,
+  "test_churn_rate": 0.2654364797728886,
+  "metrics": {
+    "threshold": 0.25,
+    "average_precision": 0.6191345927907305,
+    "roc_auc": 0.8323645663799115,
+    "precision": 0.49756888168557534,
+    "recall": 0.820855614973262,
+    "f1": 0.6195761856710393,
+    "brier": 0.14160132062432876,
+    "log_loss": 0.4312946633257632,
+    "tn": 725,
+    "fp": 310,
+    "fn": 67,
+    "tp": 307
+  },
+  "confidence_intervals_95": {
+    "average_precision": [
+      0.5664044194376825,
+      0.6732847305276389
+    ],
+    "roc_auc": [
+      0.810353320434821,
+      0.8537481474873985
+    ],
+    "precision": [
+      0.46028850588343806,
+      0.5364678037611587
+    ],
+    "recall": [
+      0.7789473684210526,
+      0.8575605712066441
+    ],
+    "f1": [
+      0.5840444700889534,
+      0.6533505980692554
+    ],
+    "brier": [
+      0.13097907127735967,
+      0.15237998296649757
+    ],
+    "log_loss": [
+      0.4014455762663127,
+      0.46027307529324835
+    ]
+  },
+  "at_budget": {
+    "k": 500,
+    "precision_at_k": 0.54,
+    "recall_at_k": 0.7219251336898396
+  },
+  "campaign_simulation": [
+    {
+      "policy": "random",
+      "n_contacted": 500.0,
+      "historical_churners_targeted": 133.1,
+      "simulated_retained": 26.972073723376088,
+      "label_based_retained": 26.620000000000005,
+      "total_cost": 2500.0,
+      "simulated_gross_value": 7224.962494505331,
+      "simulated_net_value": 4724.962494505331,
+      "simulated_net_value_std": 440.8820984764117,
+      "simulated_roi": 1.8899849978021321,
+      "note": "mean of 20 seeds"
+    },
+    {
+      "policy": "highest_risk",
+      "n_contacted": 500.0,
+      "historical_churners_targeted": 270.0,
+      "simulated_retained": 56.46835058422516,
+      "label_based_retained": 54.0,
+      "total_cost": 2500.0,
+      "simulated_gross_value": 15940.021824211142,
+      "simulated_net_value": 13440.021824211142,
+      "simulated_net_value_std": 0.0,
+      "simulated_roi": 5.3760087296844565,
+      "note": "deterministic"
+    },
+    {
+      "policy": "expected_net_value",
+      "n_contacted": 500.0,
+      "historical_churners_targeted": 262.0,
+      "simulated_retained": 54.42742235128719,
+      "label_based_retained": 52.400000000000006,
+      "total_cost": 2500.0,
+      "simulated_gross_value": 16419.14276975021,
+      "simulated_net_value": 13919.142769750211,
+      "simulated_net_value_std": 0.0,
+      "simulated_roi": 5.567657107900085,
+      "note": "deterministic"
+    }
+  ],
+  "figures": {
+    "pr": "C:\\Users\\prave\\Downloads\\customer-churn\\customer-churn\\reports\\figures\\final_pr_curve.png",
+    "roc": "C:\\Users\\prave\\Downloads\\customer-churn\\customer-churn\\reports\\figures\\final_roc_curve.png",
+    "cm": "C:\\Users\\prave\\Downloads\\customer-churn\\customer-churn\\reports\\figures\\final_confusion_matrix.png",
+    "cal": "C:\\Users\\prave\\Downloads\\customer-churn\\customer-churn\\reports\\figures\\final_calibration_curve.png",
+    "campaign": "C:\\Users\\prave\\Downloads\\customer-churn\\customer-churn\\reports\\figures\\final_campaign_comparison.png"
+  }
+}

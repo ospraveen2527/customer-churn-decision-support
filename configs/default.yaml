@@ -1,0 +1,84 @@
+# Default configuration. Every tunable choice lives here so runs are reproducible.
+# NOTE: the `simulation` values are ILLUSTRATIVE PLACEHOLDERS chosen by the project
+# author. They are NOT estimated from data. Replace them with your own assumptions.
+
+project:
+  name: customer-churn
+  random_seed: 42
+
+split:                 # stratified on Churn; fixed seed above
+  train_size: 0.60
+  val_size: 0.20
+  test_size: 0.20
+
+cv:
+  n_splits: 5          # stratified K-fold, TRAINING data only
+
+features:
+  # Columns to drop from the model inputs (customerID and Churn are always excluded).
+  # Example for a fairness experiment: [gender, SeniorCitizen, Partner, Dependents]
+  exclude_columns: []
+
+baseline:
+  decision_threshold: 0.5   # default cut-off for Stage 3 only (not tuned)
+
+models:
+  # If a simpler model is within this much average-precision of the best model
+  # on VALIDATION data, the simpler model is selected.
+  selection_tolerance_ap: 0.01
+  logistic_regression:
+    param_grid:
+      model__C: [0.01, 0.1, 1.0, 10.0]
+  random_forest:
+    fixed:
+      n_estimators: 300
+      n_jobs: -1
+    param_grid:
+      model__max_depth: [4, 8, null]
+      model__min_samples_leaf: [5, 20]
+  xgboost:
+    enabled: false          # needs `pip install xgboost`
+    fixed:
+      n_estimators: 300
+      eval_metric: logloss
+    param_grid:
+      model__max_depth: [2, 3]
+      model__learning_rate: [0.05, 0.1]
+
+calibration:
+  method: sigmoid
+  cv: 5
+  # Deploy the calibrated model only if it has lower VALIDATION log loss.
+
+threshold:
+  rule: max_recall_min_precision   # or: min_cost
+  min_precision: 0.50
+  grid_min: 0.05
+  grid_max: 0.95
+  grid_step: 0.05
+  fn_cost: 5.0                     # used only when rule == min_cost
+  fp_cost: 1.0
+
+simulation:
+  contribution_margin: 0.30
+  retention_horizon_months: 12
+  save_rate: 0.20
+  contact_cost: 5.0
+  total_budget: 2500.0
+  n_random_seeds: 20
+  sensitivity:
+    save_rate: [0.05, 0.10, 0.20, 0.30, 0.50]
+    contact_cost: [1.0, 2.5, 5.0, 10.0, 20.0]
+    contribution_margin: [0.10, 0.20, 0.30, 0.40, 0.60]
+    retention_horizon_months: [3, 6, 12, 24]
+
+retention_rules:
+  low_risk_max: 0.20            # below this probability -> "Low" risk band
+  high_monthly_charges: 80.0
+  low_tenure_months: 12
+  high_value_cutoff: 250.0      # customer value proxy above this = "high value"
+
+explain:
+  n_repeats: 10
+  top_k: 5
+  n_local_examples: 3

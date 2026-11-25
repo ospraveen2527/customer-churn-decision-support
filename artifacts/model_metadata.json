@@ -1,0 +1,62 @@
+{
+  "model_version": "logistic_regression-raw-7b261076",
+  "model_name": "logistic_regression",
+  "calibrated": false,
+  "threshold": 0.25,
+  "feature_order": {
+    "numeric": [
+      "tenure",
+      "MonthlyCharges",
+      "TotalCharges"
+    ],
+    "categorical": [
+      "gender",
+      "SeniorCitizen",
+      "Partner",
+      "Dependents",
+      "PhoneService",
+      "MultipleLines",
+      "InternetService",
+      "OnlineSecurity",
+      "OnlineBackup",
+      "DeviceProtection",
+      "TechSupport",
+      "StreamingTV",
+      "StreamingMovies",
+      "Contract",
+      "PaperlessBilling",
+      "PaymentMethod"
+    ]
+  },
+  "reference_values": {
+    "tenure": 29.0,
+    "MonthlyCharges": 70.55,
+    "TotalCharges": 1373.625,
+    "gender": "Male",
+    "SeniorCitizen": 0,
+    "Partner": "No",
+    "Dependents": "No",
+    "PhoneService": "Yes",
+    "MultipleLines": "No",
+    "InternetService": "Fiber optic",
+    "OnlineSecurity": "No",
+    "OnlineBackup": "No",
+    "DeviceProtection": "No",
+    "TechSupport": "No",
+    "StreamingTV": "Yes",
+    "StreamingMovies": "Yes",
+    "Contract": "Month-to-month",
+    "PaperlessBilling": "Yes",
+    "PaymentMethod": "Electronic check"
+  },
+  "random_seed": 42,
+  "package_versions": {
+    "python": "3.12.4",
+    "pandas": "3.1.1",
+    "numpy": "2.5.5",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "xgboost": "3.4.1"
+  },
+  "created_at_utc": "2026-11-25T18:22:23.621173+00:00"
+}

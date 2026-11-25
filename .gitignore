@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+*.egg-info/
+
+# Raw / processed customer data (never commit customer-level data)
+data/raw/*.csv
+data/processed/*
+!data/processed/.gitkeep
+
+# Model binaries (rebuild with the training commands)
+artifacts/*.joblib
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Customer split identifiers
+data/splits/*.csv

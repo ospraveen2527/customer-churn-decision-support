@@ -1,0 +1,4 @@
+policy,n_contacted,historical_churners_targeted,simulated_retained,label_based_retained,total_cost,simulated_gross_value,simulated_net_value,simulated_net_value_std,simulated_roi,note,label
+random,500.0,134.7,27.033438115025355,26.939999999999998,2500.0,7175.512443014808,4675.512443014808,317.71578776026956,1.8702049772059233,mean of 20 seeds,"SIMULATED - based on stated assumptions, not measured outcomes"
+highest_risk,500.0,283.0,56.18019134633569,56.6,2500.0,15699.821732644508,13199.821732644508,0.0,5.279928693057803,deterministic,"SIMULATED - based on stated assumptions, not measured outcomes"
+expected_net_value,500.0,268.0,54.05559636692152,53.6,2500.0,16181.170239960946,13681.170239960946,0.0,5.472468095984378,deterministic,"SIMULATED - based on stated assumptions, not measured outcomes"
